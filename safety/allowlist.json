@@ -1,0 +1,6 @@
+{
+  "allowed_domains": ["127.0.0.1:5055", "localhost:5055"],
+  "allowed_path_prefixes": ["/login", "/logout", "/member-search", "/member", "/open-sub-account", "/"],
+  "allowed_actions": ["navigate", "click", "type", "select", "wait_for", "extract", "assert_text"],
+  "hard_blocked_actions": []
+}

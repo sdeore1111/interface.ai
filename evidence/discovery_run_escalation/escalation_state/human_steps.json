@@ -1,0 +1,25 @@
+[
+  {
+    "action": "click",
+    "description": "[human] Click 'Confirm Override & Continue'",
+    "locator": {
+      "description": "button 'Confirm Override & Continue'",
+      "candidates": [
+        {
+          "strategy": "text",
+          "value": "Confirm Override & Continue",
+          "role_name": null,
+          "robustness_note": "Legacy control has no id/name (e.g. onclick-span fake button); visible text is the only thing a human would also rely on. Breaks if the label copy changes."
+        },
+        {
+          "strategy": "role",
+          "value": "button",
+          "role_name": "Confirm Override & Continue",
+          "robustness_note": "Accessible-role match; cheap extra fallback, works if the browser computes an accessible name even without explicit ARIA."
+        }
+      ]
+    },
+    "value_template": null,
+    "risk_level": "requires_confirmation"
+  }
+]

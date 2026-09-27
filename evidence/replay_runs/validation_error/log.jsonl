@@ -1,0 +1,21 @@
+{"ts": 1790552976.5968149, "kind": "run_started", "run_id": "validation_error", "run_type": "replay"}
+{"ts": 1790552977.5549457, "kind": "replay_start", "run_id": "validation_error", "capability_id": "open_sub_account", "version": 1, "params": {"member_id": "[REDACTED]", "account_type": "SAVINGS_SUB", "opening_deposit": -5.0}}
+{"ts": 1790552977.5550635, "kind": "replay_step_start", "run_id": "validation_error", "step": "s0", "action": "type"}
+{"ts": 1790552977.6730862, "kind": "replay_step_ok", "run_id": "validation_error", "step": "s0"}
+{"ts": 1790552977.6731918, "kind": "replay_step_start", "run_id": "validation_error", "step": "s1", "action": "type"}
+{"ts": 1790552977.703514, "kind": "replay_step_ok", "run_id": "validation_error", "step": "s1"}
+{"ts": 1790552977.7036006, "kind": "replay_step_start", "run_id": "validation_error", "step": "s2", "action": "click"}
+{"ts": 1790552977.8345218, "kind": "replay_step_ok", "run_id": "validation_error", "step": "s2"}
+{"ts": 1790552977.8346093, "kind": "replay_step_start", "run_id": "validation_error", "step": "s3", "action": "type"}
+{"ts": 1790552977.9211662, "kind": "replay_step_ok", "run_id": "validation_error", "step": "s3"}
+{"ts": 1790552977.9213188, "kind": "replay_step_start", "run_id": "validation_error", "step": "s4", "action": "click"}
+{"ts": 1790552978.0686626, "kind": "replay_step_ok", "run_id": "validation_error", "step": "s4"}
+{"ts": 1790552978.0687838, "kind": "replay_step_start", "run_id": "validation_error", "step": "s5", "action": "click"}
+{"ts": 1790552978.2103915, "kind": "replay_step_ok", "run_id": "validation_error", "step": "s5"}
+{"ts": 1790552978.2104876, "kind": "replay_step_start", "run_id": "validation_error", "step": "s6", "action": "select"}
+{"ts": 1790552978.2789223, "kind": "replay_step_ok", "run_id": "validation_error", "step": "s6"}
+{"ts": 1790552978.2790105, "kind": "replay_step_start", "run_id": "validation_error", "step": "s7", "action": "type"}
+{"ts": 1790552978.3036273, "kind": "replay_step_ok", "run_id": "validation_error", "step": "s7"}
+{"ts": 1790552978.3037014, "kind": "replay_step_start", "run_id": "validation_error", "step": "s8", "action": "click"}
+{"ts": 1790552978.456482, "kind": "replay_business_outcome", "run_id": "validation_error", "step": "s8", "code": "VALIDATION_ERROR_DEPOSIT"}
+{"ts": 1790552978.4565887, "kind": "run_finished", "run_id": "validation_error", "outcome": "BUSINESS_OUTCOME", "code": "VALIDATION_ERROR_DEPOSIT"}

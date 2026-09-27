@@ -1,0 +1,13 @@
+{"ts": 1790552949.7931464, "kind": "run_started", "run_id": "not_found", "run_type": "replay"}
+{"ts": 1790552950.764798, "kind": "replay_start", "run_id": "not_found", "capability_id": "open_sub_account", "version": 1, "params": {"member_id": "[REDACTED]", "account_type": "SAVINGS_SUB", "opening_deposit": 150.0}}
+{"ts": 1790552950.7649298, "kind": "replay_step_start", "run_id": "not_found", "step": "s0", "action": "type"}
+{"ts": 1790552950.9090202, "kind": "replay_step_ok", "run_id": "not_found", "step": "s0"}
+{"ts": 1790552950.9091105, "kind": "replay_step_start", "run_id": "not_found", "step": "s1", "action": "type"}
+{"ts": 1790552950.9455655, "kind": "replay_step_ok", "run_id": "not_found", "step": "s1"}
+{"ts": 1790552950.9456437, "kind": "replay_step_start", "run_id": "not_found", "step": "s2", "action": "click"}
+{"ts": 1790552951.1005332, "kind": "replay_step_ok", "run_id": "not_found", "step": "s2"}
+{"ts": 1790552951.1006198, "kind": "replay_step_start", "run_id": "not_found", "step": "s3", "action": "type"}
+{"ts": 1790552951.2109392, "kind": "replay_step_ok", "run_id": "not_found", "step": "s3"}
+{"ts": 1790552951.2110257, "kind": "replay_step_start", "run_id": "not_found", "step": "s4", "action": "click"}
+{"ts": 1790552951.3316162, "kind": "replay_business_outcome", "run_id": "not_found", "step": "s4", "code": "MEMBER_NOT_FOUND"}
+{"ts": 1790552951.3317137, "kind": "run_finished", "run_id": "not_found", "outcome": "BUSINESS_OUTCOME", "code": "MEMBER_NOT_FOUND"}

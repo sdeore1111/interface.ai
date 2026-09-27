@@ -1,0 +1,402 @@
+{
+  "schema_version": "1.0",
+  "capability_id": "open_sub_account",
+  "version": 1,
+  "name": "Open Sub Account",
+  "description": "Auto-recorded capability for goal: Look up member 12345, open a new Savings Sub-Account for them with an opening deposit of $150, and reach the confirmation screen. If you land on a sign-in form, use type_env with env_var='MERIDIAN_TELLER_USERNAME' for the username field and env_var='MERIDIAN_TELLER_PASSWORD' for the password field, then click Sign In.",
+  "goal_template": "Look up member 12345, open a new Savings Sub-Account for them with an opening deposit of $150, and reach the confirmation screen. If you land on a sign-in form, use type_env with env_var='MERIDIAN_TELLER_USERNAME' for the username field and env_var='MERIDIAN_TELLER_PASSWORD' for the password field, then click Sign In.",
+  "target": {
+    "app_id": "meridian_teller_console",
+    "tenant_id": null,
+    "surface_type": "legacy_web",
+    "base_url": "http://127.0.0.1:5055",
+    "entry_path": "/login"
+  },
+  "input_params": [
+    {
+      "name": "member_id",
+      "type": "string",
+      "required": true,
+      "description": "Credit union member ID to open the sub-account for.",
+      "example": "12345",
+      "redact_in_logs": true
+    },
+    {
+      "name": "account_type",
+      "type": "string",
+      "required": true,
+      "description": "Sub-account type code, e.g. SAVINGS_SUB or CHRISTMAS_CLUB.",
+      "example": "SAVINGS_SUB",
+      "redact_in_logs": false
+    },
+    {
+      "name": "opening_deposit",
+      "type": "number",
+      "required": true,
+      "description": "Opening deposit amount in USD.",
+      "example": 150,
+      "redact_in_logs": false
+    }
+  ],
+  "outputs": [],
+  "steps": [
+    {
+      "id": "s0",
+      "action": "type",
+      "description": "Enter the teller username to sign in",
+      "locator": {
+        "description": "textbox 'Username'",
+        "candidates": [
+          {
+            "strategy": "css",
+            "value": "[name=\"username\"]",
+            "role_name": null,
+            "robustness_note": "Survives id churn; form field 'name' attributes are functional, so rarely renamed."
+          },
+          {
+            "strategy": "xpath",
+            "value": "//td[contains(normalize-space(.),\"Username\")]/following-sibling::td//input",
+            "role_name": null,
+            "robustness_note": "Table-adjacency fallback for a field with no id/name/label element; breaks if row layout is restructured, but survives styling/id changes."
+          },
+          {
+            "strategy": "role",
+            "value": "textbox",
+            "role_name": "Username",
+            "robustness_note": "Accessible-role match; cheap extra fallback, works if the browser computes an accessible name even without explicit ARIA."
+          }
+        ]
+      },
+      "value_template": "{{env:MERIDIAN_TELLER_USERNAME}}",
+      "extract_as": null,
+      "risk_level": "safe",
+      "outcome_probes": [],
+      "timeout_ms": 8000
+    },
+    {
+      "id": "s1",
+      "action": "type",
+      "description": "Enter the teller password to sign in",
+      "locator": {
+        "description": "password_field 'Password'",
+        "candidates": [
+          {
+            "strategy": "css",
+            "value": "[name=\"password\"]",
+            "role_name": null,
+            "robustness_note": "Survives id churn; form field 'name' attributes are functional, so rarely renamed."
+          },
+          {
+            "strategy": "xpath",
+            "value": "//td[contains(normalize-space(.),\"Password\")]/following-sibling::td//input",
+            "role_name": null,
+            "robustness_note": "Table-adjacency fallback for a field with no id/name/label element; breaks if row layout is restructured, but survives styling/id changes."
+          },
+          {
+            "strategy": "role",
+            "value": "textbox",
+            "role_name": "Password",
+            "robustness_note": "Accessible-role match; cheap extra fallback, works if the browser computes an accessible name even without explicit ARIA."
+          }
+        ]
+      },
+      "value_template": "{{env:MERIDIAN_TELLER_PASSWORD}}",
+      "extract_as": null,
+      "risk_level": "safe",
+      "outcome_probes": [],
+      "timeout_ms": 8000
+    },
+    {
+      "id": "s2",
+      "action": "click",
+      "description": "Click the Sign In button to authenticate",
+      "locator": {
+        "description": "button 'Sign In'",
+        "candidates": [
+          {
+            "strategy": "text",
+            "value": "Sign In",
+            "role_name": null,
+            "robustness_note": "Legacy control has no id/name (e.g. onclick-span fake button); visible text is the only thing a human would also rely on. Breaks if the label copy changes."
+          },
+          {
+            "strategy": "role",
+            "value": "button",
+            "role_name": "Sign In",
+            "robustness_note": "Accessible-role match; cheap extra fallback, works if the browser computes an accessible name even without explicit ARIA."
+          }
+        ]
+      },
+      "value_template": null,
+      "extract_as": null,
+      "risk_level": "safe",
+      "outcome_probes": [],
+      "timeout_ms": 8000
+    },
+    {
+      "id": "s3",
+      "action": "type",
+      "description": "Enter the member ID to search for the member",
+      "locator": {
+        "description": "textbox 'Member ID'",
+        "candidates": [
+          {
+            "strategy": "css",
+            "value": "[name=\"member_id\"]",
+            "role_name": null,
+            "robustness_note": "Survives id churn; form field 'name' attributes are functional, so rarely renamed."
+          },
+          {
+            "strategy": "xpath",
+            "value": "//td[contains(normalize-space(.),\"Member ID\")]/following-sibling::td//input",
+            "role_name": null,
+            "robustness_note": "Table-adjacency fallback for a field with no id/name/label element; breaks if row layout is restructured, but survives styling/id changes."
+          },
+          {
+            "strategy": "role",
+            "value": "textbox",
+            "role_name": "Member ID",
+            "robustness_note": "Accessible-role match; cheap extra fallback, works if the browser computes an accessible name even without explicit ARIA."
+          }
+        ]
+      },
+      "value_template": "{{member_id}}",
+      "extract_as": null,
+      "risk_level": "safe",
+      "outcome_probes": [],
+      "timeout_ms": 8000
+    },
+    {
+      "id": "s4",
+      "action": "click",
+      "description": "Click the Search button to look up the member",
+      "locator": {
+        "description": "button 'Search'",
+        "candidates": [
+          {
+            "strategy": "text",
+            "value": "Search",
+            "role_name": null,
+            "robustness_note": "Legacy control has no id/name (e.g. onclick-span fake button); visible text is the only thing a human would also rely on. Breaks if the label copy changes."
+          },
+          {
+            "strategy": "role",
+            "value": "button",
+            "role_name": "Search",
+            "robustness_note": "Accessible-role match; cheap extra fallback, works if the browser computes an accessible name even without explicit ARIA."
+          }
+        ]
+      },
+      "value_template": null,
+      "extract_as": null,
+      "risk_level": "safe",
+      "outcome_probes": [],
+      "timeout_ms": 8000
+    },
+    {
+      "id": "s5",
+      "action": "click",
+      "description": "Click the 'Open Sub-Account' button to begin opening a new sub-account",
+      "locator": {
+        "description": "button 'Open Sub-Account'",
+        "candidates": [
+          {
+            "strategy": "text",
+            "value": "Open Sub-Account",
+            "role_name": null,
+            "robustness_note": "Legacy control has no id/name (e.g. onclick-span fake button); visible text is the only thing a human would also rely on. Breaks if the label copy changes."
+          },
+          {
+            "strategy": "role",
+            "value": "button",
+            "role_name": "Open Sub-Account",
+            "robustness_note": "Accessible-role match; cheap extra fallback, works if the browser computes an accessible name even without explicit ARIA."
+          }
+        ]
+      },
+      "value_template": null,
+      "extract_as": null,
+      "risk_level": "safe",
+      "outcome_probes": [],
+      "timeout_ms": 8000
+    },
+    {
+      "id": "s6",
+      "action": "select",
+      "description": "Select the Savings Sub-Account type from the dropdown",
+      "locator": {
+        "description": "select 'Account Type'",
+        "candidates": [
+          {
+            "strategy": "css",
+            "value": "[name=\"account_type\"]",
+            "role_name": null,
+            "robustness_note": "Survives id churn; form field 'name' attributes are functional, so rarely renamed."
+          },
+          {
+            "strategy": "xpath",
+            "value": "//td[contains(normalize-space(.),\"Account Type\")]/following-sibling::td//select",
+            "role_name": null,
+            "robustness_note": "Table-adjacency fallback for a field with no id/name/label element; breaks if row layout is restructured, but survives styling/id changes."
+          },
+          {
+            "strategy": "role",
+            "value": "textbox",
+            "role_name": "Account Type",
+            "robustness_note": "Accessible-role match; cheap extra fallback, works if the browser computes an accessible name even without explicit ARIA."
+          }
+        ]
+      },
+      "value_template": "SAVINGS_SUB",
+      "extract_as": null,
+      "risk_level": "safe",
+      "outcome_probes": [],
+      "timeout_ms": 8000
+    },
+    {
+      "id": "s7",
+      "action": "type",
+      "description": "Enter the opening deposit amount for the new sub-account",
+      "locator": {
+        "description": "textbox 'Opening Deposit ($)'",
+        "candidates": [
+          {
+            "strategy": "css",
+            "value": "[name=\"opening_deposit\"]",
+            "role_name": null,
+            "robustness_note": "Survives id churn; form field 'name' attributes are functional, so rarely renamed."
+          },
+          {
+            "strategy": "xpath",
+            "value": "//td[contains(normalize-space(.),\"Opening Deposit ($)\")]/following-sibling::td//input",
+            "role_name": null,
+            "robustness_note": "Table-adjacency fallback for a field with no id/name/label element; breaks if row layout is restructured, but survives styling/id changes."
+          },
+          {
+            "strategy": "role",
+            "value": "textbox",
+            "role_name": "Opening Deposit ($)",
+            "robustness_note": "Accessible-role match; cheap extra fallback, works if the browser computes an accessible name even without explicit ARIA."
+          }
+        ]
+      },
+      "value_template": "{{opening_deposit}}",
+      "extract_as": null,
+      "risk_level": "safe",
+      "outcome_probes": [],
+      "timeout_ms": 8000
+    },
+    {
+      "id": "s8",
+      "action": "click",
+      "description": "Click Submit to complete the sub-account opening process",
+      "locator": {
+        "description": "button 'Submit'",
+        "candidates": [
+          {
+            "strategy": "text",
+            "value": "Submit",
+            "role_name": null,
+            "robustness_note": "Legacy control has no id/name (e.g. onclick-span fake button); visible text is the only thing a human would also rely on. Breaks if the label copy changes."
+          },
+          {
+            "strategy": "role",
+            "value": "button",
+            "role_name": "Submit",
+            "robustness_note": "Accessible-role match; cheap extra fallback, works if the browser computes an accessible name even without explicit ARIA."
+          }
+        ]
+      },
+      "value_template": null,
+      "extract_as": null,
+      "risk_level": "requires_confirmation",
+      "outcome_probes": [],
+      "timeout_ms": 8000
+    }
+  ],
+  "outcome_taxonomy": [
+    {
+      "code": "MEMBER_NOT_FOUND",
+      "category": "business_outcome",
+      "match_text": "No member found matching",
+      "match_locator": null,
+      "http_status_in": null,
+      "description": "Search returned no match for the given member_id. Legitimate answer, not a failure.",
+      "recovery_action": null,
+      "retry_limit": 0
+    },
+    {
+      "code": "PERMISSION_DENIED_RESTRICTED",
+      "category": "business_outcome",
+      "match_text": "flagged RESTRICTED",
+      "match_locator": null,
+      "http_status_in": null,
+      "description": "Member account is restricted; sub-account actions are blocked for this teller role.",
+      "recovery_action": null,
+      "retry_limit": 0
+    },
+    {
+      "code": "VALIDATION_ERROR_DEPOSIT",
+      "category": "business_outcome",
+      "match_text": "Opening deposit must be",
+      "match_locator": null,
+      "http_status_in": null,
+      "description": "Opening deposit failed form validation (non-numeric, zero, or negative).",
+      "recovery_action": null,
+      "retry_limit": 0
+    },
+    {
+      "code": "SESSION_TIMEOUT",
+      "category": "recoverable",
+      "match_text": "session has expired",
+      "match_locator": null,
+      "http_status_in": [
+        440
+      ],
+      "description": "Idle session expired mid-flow.",
+      "recovery_action": "reauthenticate_and_retry_step",
+      "retry_limit": 1
+    },
+    {
+      "code": "SUPERVISOR_OVERRIDE_INTERSTITIAL",
+      "category": "recoverable",
+      "match_text": "Supervisor Override Required",
+      "match_locator": null,
+      "http_status_in": null,
+      "description": "Deposit exceeds the auto-approval threshold; a known confirmation interstitial appears.",
+      "recovery_action": "confirm_override",
+      "retry_limit": 1
+    },
+    {
+      "code": "TRANSIENT_SERVER_ERROR",
+      "category": "recoverable",
+      "match_text": null,
+      "match_locator": null,
+      "http_status_in": [
+        500,
+        502,
+        503,
+        504
+      ],
+      "description": "Transient server-side error; safe to retry the current step a bounded number of times.",
+      "recovery_action": "wait_and_retry_step",
+      "retry_limit": 2
+    }
+  ],
+  "final_checkpoint": {
+    "code": "GOAL_REACHED",
+    "category": "success",
+    "match_text": "Sub-Account Created",
+    "match_locator": null,
+    "http_status_in": null,
+    "description": "Text observed on the page when the LLM confirmed the goal was reached.",
+    "recovery_action": null,
+    "retry_limit": 0
+  },
+  "provenance": {
+    "discovery_run_id": "discovery_1790552897",
+    "created_at": "2026-09-27T23:48:36.560804+00:00",
+    "model": "claude-sonnet-4-5-20250929",
+    "source": "llm_discovery"
+  }
+}

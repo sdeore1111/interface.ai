@@ -1,0 +1,22 @@
+{"ts": 1790552943.7525852, "kind": "run_started", "run_id": "success", "run_type": "replay"}
+{"ts": 1790552944.735319, "kind": "replay_start", "run_id": "success", "capability_id": "open_sub_account", "version": 1, "params": {"member_id": "[REDACTED]", "account_type": "SAVINGS_SUB", "opening_deposit": 150.0}}
+{"ts": 1790552944.735442, "kind": "replay_step_start", "run_id": "success", "step": "s0", "action": "type"}
+{"ts": 1790552944.8583312, "kind": "replay_step_ok", "run_id": "success", "step": "s0"}
+{"ts": 1790552944.8584478, "kind": "replay_step_start", "run_id": "success", "step": "s1", "action": "type"}
+{"ts": 1790552944.8929298, "kind": "replay_step_ok", "run_id": "success", "step": "s1"}
+{"ts": 1790552944.893044, "kind": "replay_step_start", "run_id": "success", "step": "s2", "action": "click"}
+{"ts": 1790552945.0221522, "kind": "replay_step_ok", "run_id": "success", "step": "s2"}
+{"ts": 1790552945.0222425, "kind": "replay_step_start", "run_id": "success", "step": "s3", "action": "type"}
+{"ts": 1790552945.1155922, "kind": "replay_step_ok", "run_id": "success", "step": "s3"}
+{"ts": 1790552945.1156764, "kind": "replay_step_start", "run_id": "success", "step": "s4", "action": "click"}
+{"ts": 1790552945.2440865, "kind": "replay_step_ok", "run_id": "success", "step": "s4"}
+{"ts": 1790552945.2441757, "kind": "replay_step_start", "run_id": "success", "step": "s5", "action": "click"}
+{"ts": 1790552945.402316, "kind": "replay_step_ok", "run_id": "success", "step": "s5"}
+{"ts": 1790552945.402441, "kind": "replay_step_start", "run_id": "success", "step": "s6", "action": "select"}
+{"ts": 1790552945.477033, "kind": "replay_step_ok", "run_id": "success", "step": "s6"}
+{"ts": 1790552945.477157, "kind": "replay_step_start", "run_id": "success", "step": "s7", "action": "type"}
+{"ts": 1790552945.5140562, "kind": "replay_step_ok", "run_id": "success", "step": "s7"}
+{"ts": 1790552945.5141702, "kind": "replay_step_start", "run_id": "success", "step": "s8", "action": "click"}
+{"ts": 1790552945.6333497, "kind": "replay_step_ok", "run_id": "success", "step": "s8"}
+{"ts": 1790552945.638418, "kind": "replay_success", "run_id": "success", "outputs": {}}
+{"ts": 1790552945.6384983, "kind": "run_finished", "run_id": "success", "outcome": "SUCCESS", "code": "GOAL_REACHED"}

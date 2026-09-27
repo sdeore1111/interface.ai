@@ -1,0 +1,23 @@
+{"ts": 1790553022.0216265, "kind": "run_started", "run_id": "recoverable_override", "run_type": "replay"}
+{"ts": 1790553022.92144, "kind": "replay_start", "run_id": "recoverable_override", "capability_id": "open_sub_account", "version": 1, "params": {"member_id": "[REDACTED]", "account_type": "SAVINGS_SUB", "opening_deposit": 6000.0}}
+{"ts": 1790553022.9215472, "kind": "replay_step_start", "run_id": "recoverable_override", "step": "s0", "action": "type"}
+{"ts": 1790553023.0552256, "kind": "replay_step_ok", "run_id": "recoverable_override", "step": "s0"}
+{"ts": 1790553023.0553246, "kind": "replay_step_start", "run_id": "recoverable_override", "step": "s1", "action": "type"}
+{"ts": 1790553023.0825963, "kind": "replay_step_ok", "run_id": "recoverable_override", "step": "s1"}
+{"ts": 1790553023.0826774, "kind": "replay_step_start", "run_id": "recoverable_override", "step": "s2", "action": "click"}
+{"ts": 1790553023.224601, "kind": "replay_step_ok", "run_id": "recoverable_override", "step": "s2"}
+{"ts": 1790553023.2247875, "kind": "replay_step_start", "run_id": "recoverable_override", "step": "s3", "action": "type"}
+{"ts": 1790553023.3304365, "kind": "replay_step_ok", "run_id": "recoverable_override", "step": "s3"}
+{"ts": 1790553023.3305218, "kind": "replay_step_start", "run_id": "recoverable_override", "step": "s4", "action": "click"}
+{"ts": 1790553023.4773464, "kind": "replay_step_ok", "run_id": "recoverable_override", "step": "s4"}
+{"ts": 1790553023.4774363, "kind": "replay_step_start", "run_id": "recoverable_override", "step": "s5", "action": "click"}
+{"ts": 1790553023.6315184, "kind": "replay_step_ok", "run_id": "recoverable_override", "step": "s5"}
+{"ts": 1790553023.631611, "kind": "replay_step_start", "run_id": "recoverable_override", "step": "s6", "action": "select"}
+{"ts": 1790553023.6833105, "kind": "replay_step_ok", "run_id": "recoverable_override", "step": "s6"}
+{"ts": 1790553023.6834033, "kind": "replay_step_start", "run_id": "recoverable_override", "step": "s7", "action": "type"}
+{"ts": 1790553023.7132952, "kind": "replay_step_ok", "run_id": "recoverable_override", "step": "s7"}
+{"ts": 1790553023.7133877, "kind": "replay_step_start", "run_id": "recoverable_override", "step": "s8", "action": "click"}
+{"ts": 1790553023.8348317, "kind": "replay_recovery_attempt", "run_id": "recoverable_override", "step": "s8", "code": "SUPERVISOR_OVERRIDE_INTERSTITIAL", "action": "confirm_override", "attempt": 1}
+{"ts": 1790553023.9803538, "kind": "replay_step_ok", "run_id": "recoverable_override", "step": "s8", "via": "recovery"}
+{"ts": 1790553023.9828897, "kind": "replay_success", "run_id": "recoverable_override", "outputs": {}}
+{"ts": 1790553023.9829497, "kind": "run_finished", "run_id": "recoverable_override", "outcome": "SUCCESS", "code": "GOAL_REACHED"}

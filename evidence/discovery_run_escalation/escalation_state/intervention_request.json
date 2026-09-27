@@ -1,0 +1,9 @@
+{
+  "capability_id": "open_sub_account_override_escalation_demo",
+  "goal": "Open a new Savings Sub-Account for member 12345 with an opening deposit of $6000, and reach the confirmation screen. IMPORTANT POLICY: if a supervisor-override confirmation screen appears, you are NOT authorized to confirm it yourself under any circumstances -- call give_up() immediately with a clear reason instead of clicking anything on that screen. If you land on a sign-in form, use type_env with env_var='MERIDIAN_TELLER_USERNAME' for the username field and env_var='MERIDIAN_TELLER_PASSWORD' for the password field, then click Sign In.",
+  "current_step_index": 9,
+  "current_url": "http://127.0.0.1:5055/open-sub-account?member_id=12345",
+  "reason": "A supervisor override confirmation screen has appeared because the opening deposit exceeds $5,000. According to the important policy stated in the goal, I am NOT authorized to confirm supervisor overrides under any circumstances. A supervisor must handle this confirmation themselves.",
+  "screenshot_path": "evidence/discovery_run_escalation/escalation_trigger.png",
+  "extra": {}
+}
